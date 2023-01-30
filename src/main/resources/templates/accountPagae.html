@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Bank</title>
+
+  <style>
+    th, td {
+      padding: 5px;
+    }
+  </style>
+
+</head>
+
+<body>
+<!-- Include _menu.html -->
+<!--<th:block th:include="/_menu"></th:block>-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<div  >
+  <a href="?lang=hy">Armenia</a> | <a href="?lang=ru">Russia</a> | <a href="?lang=en">English</a>
+
+
+</div>
+<br><br>
+<div >
+
+  <a th:href="@{/}">Accounts</a>
+
+  |
+
+  <a th:href="@{/sendMoney}">Send Money</a>
+
+
+</div>
+
+<h2>Accounts</h2>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Full Name</th>
+    <th>Balance</th>
+  </tr>
+  <tr th:each="accountInfo : ${accountInfos}">
+    <td th:utext="${accountInfo.id}">..</td>
+    <td th:utext="${accountInfo.fullName}">..</td>
+    <td th:utext="${accountInfo.balance}">..</td>
+  </tr>
+
+</table>
+</body>
+</html>
